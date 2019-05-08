@@ -32,7 +32,7 @@ class _Commands(__CommandEnum):
     text_change = auto()
     slider_change = auto()
     image_press = auto()
-    image_held = auto()
+    image_hold = auto()
     image_release = auto()
     #Other callbacks
     complexes_receive = auto()
@@ -47,6 +47,7 @@ class _Commands(__CommandEnum):
     stream_interrupt = auto()
     stream_feed_done = auto()
     structures_deep_update_done = auto()
+    position_structures_done = auto()
 
 # /!\ /!\ /!\
 # Values names are really important here, as they are hashed, and need to match Nanome

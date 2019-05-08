@@ -6,11 +6,6 @@ import test_plugins
 import sys
 import subprocess
 
-def runplugin (plugin_class):
-    plugin = nanome.Plugin("✏Testing Plugin", "Plugin is being run using the tester plugin.", "Test", True)
-    plugin.set_plugin_class(plugin_class)
-    plugin.run('127.0.0.1', 8888)
-
 if __name__ == "__main__":
     class_name = str(sys.argv[1])
     pluginNum = int(sys.argv[2])
@@ -31,4 +26,6 @@ if __name__ == "__main__":
             break
     if plugin_class == None:
         raise "No class " + class_name + " in module " + module_name
-    runplugin(plugin_class)
+    plugin = nanome.Plugin(class_name, "Plugin is being run using the tester plugin.", "Test", True)
+    plugin.set_plugin_class(plugin_class)
+    plugin.run('127.0.0.1', 8888)

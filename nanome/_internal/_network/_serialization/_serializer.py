@@ -86,6 +86,7 @@ add_command(CommandCallbacks._Commands.complex_remove, CommandSerializers._Compl
 add_command(CommandCallbacks._Commands.complex_list_receive, CommandSerializers._ReceiveComplexList())
 add_command(CommandCallbacks._Commands.complexes_receive, CommandSerializers._ReceiveComplexes())
 add_command(CommandCallbacks._Commands.structures_deep_update_done, CommandSerializers._UpdateStructuresDeepDone())
+add_command(CommandCallbacks._Commands.position_structures_done, CommandSerializers._PositionStructuresDone())
 add_command(CommandCallbacks._Commands.bonds_add_result, CommandSerializers._AddBonds())
 
 #ui
@@ -95,9 +96,9 @@ add_command(CommandCallbacks._Commands.slider_release, CommandSerializers._Slide
 add_command(CommandCallbacks._Commands.slider_change, CommandSerializers._SliderCallback())
 add_command(CommandCallbacks._Commands.text_submit, CommandSerializers._TextInputCallback())
 add_command(CommandCallbacks._Commands.text_change, CommandSerializers._TextInputCallback())
-add_command(CommandCallbacks._Commands.image_press, CommandSerializers._ImageCallback)
-add_command(CommandCallbacks._Commands.image_held, CommandSerializers._ImageCallback)
-add_command(CommandCallbacks._Commands.image_release, CommandSerializers._ImageCallback)
+add_command(CommandCallbacks._Commands.image_press, CommandSerializers._ImageCallback())
+add_command(CommandCallbacks._Commands.image_hold, CommandSerializers._ImageCallback())
+add_command(CommandCallbacks._Commands.image_release, CommandSerializers._ImageCallback())
 
 #file
 add_command(CommandCallbacks._Commands.directory_receive, CommandSerializers._DirectoryRequest())
@@ -167,6 +168,7 @@ add_callback(CommandCallbacks._Commands.workspace_receive, CommandCallbacks._rec
 add_callback(CommandCallbacks._Commands.complex_add, CommandCallbacks._complex_added)
 add_callback(CommandCallbacks._Commands.complex_remove, CommandCallbacks._complex_removed)
 add_callback(CommandCallbacks._Commands.structures_deep_update_done, CommandCallbacks._update_structures_deep_done)
+add_callback(CommandCallbacks._Commands.position_structures_done, CommandCallbacks._position_structures_done)
 add_callback(CommandCallbacks._Commands.bonds_add_result, CommandCallbacks._add_bonds_result)
 add_callback(CommandCallbacks._Commands.complexes_receive, CommandCallbacks._receive_complexes)
 
@@ -179,7 +181,7 @@ add_callback(CommandCallbacks._Commands.text_submit, CommandCallbacks._text_subm
 add_callback(CommandCallbacks._Commands.text_change, CommandCallbacks._text_changed)
 add_callback(CommandCallbacks._Commands.button_press, CommandCallbacks._button_pressed)
 add_callback(CommandCallbacks._Commands.image_press, CommandCallbacks._image_pressed)
-add_callback(CommandCallbacks._Commands.image_held, CommandCallbacks._image_held)
+add_callback(CommandCallbacks._Commands.image_hold, CommandCallbacks._image_held)
 add_callback(CommandCallbacks._Commands.image_release, CommandCallbacks._image_released)
 
 #file

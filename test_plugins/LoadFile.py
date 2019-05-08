@@ -7,7 +7,7 @@ from nanome.api.structure import Complex, Workspace
 
 
 class LoadFile(nanome.PluginInstance):
-    filename = "\\mmcif\\ed.cif"
+    filename = "\\mmcif\\tebgit.cif"
     test_assets = os.getcwd() + ("\\testing\\test_assets")
 
     def start(self):
@@ -47,10 +47,10 @@ class LoadFile(nanome.PluginInstance):
                 if atom.rendering.selected:
                     atoms.append(atom)
         if self.zoom:
-            self.zoom_on_structures(atoms)
+            self.zoom_on_structures(atoms, lambda : print("Zoomed"))
             self.zoom = False
         else:
-            self.center_on_structures(atoms)
+            self.center_on_structures(atoms, lambda : print("Centered"))
             self.zoom = True
 
     def __init__(self):

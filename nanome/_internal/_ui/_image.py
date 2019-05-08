@@ -13,9 +13,9 @@ class _Image(_UIBase):
         self._file_path = ""
         self._color = Color.White()
         self._scaling_option = ScalingOptions.stretch
-        self._pressed_callback = lambda : None
-        self._held_callback = lambda : None
-        self._released_callback = lambda : None
+        self._pressed_callback = lambda self, x, y: None
+        self._held_callback = lambda self, x, y: None
+        self._released_callback = lambda self, x, y: None
         
     def _on_image_pressed (self, x, y):
         self._pressed_callback(self, x, y)
@@ -39,5 +39,6 @@ class _Image(_UIBase):
         super()._copy_values_deep(other)
         self._color = other._color
         self._file_path = other._file_path
+        self._pressed_callback = other._pressed_callback
         self._held_callback = other._held_callback
         self._released_callback = other._released_callback
