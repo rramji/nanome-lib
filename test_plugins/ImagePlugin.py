@@ -21,7 +21,6 @@ class ImagePlugin(nanome.PluginInstance):
         menu.enabled = True
         self.update_menu(menu)
 
-
     def create_image_menu(self):
         menu = nanome.ui.Menu.io.from_json("ImageMenu.json")
         root = menu.root
