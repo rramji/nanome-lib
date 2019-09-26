@@ -17,7 +17,8 @@ class _ResidueSerializer(_TypeSerializer):
 
     def version(self):
         #Version 0 corresponds to Nanome release 1.10
-        return 1
+        #Version 1 corresponds to Nanome release 1.12
+        return 2
 
     def name(self):
         return "Residue"
@@ -29,12 +30,20 @@ class _ResidueSerializer(_TypeSerializer):
         if (self.shallow):
             context.write_using_serializer(self.array, [])
         else:
-            context.write_using_serializer(self.array, value._atoms)
+            if (version >= 2):
+                context.write_using_serializer(self.array, value._atoms)
+            else:
+                existing_atoms = filter(value._atoms, lambda x : x._exists[x._molecule._current_conformer])
+                context.write_using_serializer(self.array, existing_atoms)
         self.array.set_type(self.bond)
         if (self.shallow):
             context.write_using_serializer(self.array, [])
         else:
-            context.write_using_serializer(self.array, value._bonds)
+            if (version >= 2):
+                context.write_using_serializer(self.array, value._bonds)
+            else:
+                existing_bonds = filter(value._bonds, lambda x : x._exists[x._molecule._current_conformer])
+                context.write_using_serializer(self.array, existing_bonds)
         context.write_bool(value._ribboned)
         context.write_float(value._ribbon_size)
         context.write_int(value._ribbon_mode)
